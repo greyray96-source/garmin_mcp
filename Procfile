@@ -1,1 +1,1 @@
-web: garmin-mcp --transport sse --host 0.0.0.0 --port $PORT
+web: garmin-mcp --transport streamable-http --host 0.0.0.0 --port $PORT
