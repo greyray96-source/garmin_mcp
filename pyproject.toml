@@ -30,3 +30,5 @@ dev-dependencies = [
 
 [tool.uv.sources]
 garmin-mcp = { workspace = true }
+[tool.railway]
+start_command = "bash start.sh"
