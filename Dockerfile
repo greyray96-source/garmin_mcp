@@ -37,9 +37,9 @@ RUN mkdir -p /root/.garminconnect && \
 # EXPOSE 8000
 
 # Set the entrypoint to run the MCP server
-CMD mkdir -p /root/.garminconnect && \
-    echo "$GARMINTOKENS_BASE64" | base64 -d > /root/.garminconnect/garmin_tokens.json && \
-    garmin-mcp --transport sse --port $PORT
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Health check (optional - adjust based on your needs)
 # HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
