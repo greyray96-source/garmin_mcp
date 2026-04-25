@@ -1,5 +1,7 @@
 #!/bin/bash
-set -e
 mkdir -p /root/.garminconnect
 echo "$GARMINTOKENS_BASE64" | base64 -d > /root/.garminconnect/garmin_tokens.json
-exec garmin-mcp --help 2>&1 | head -50 && sleep 60
+garmin-mcp --help > /tmp/help.txt 2>&1
+cat /tmp/help.txt
+echo "=== HELP OUTPUT ABOVE ==="
+sleep 60
